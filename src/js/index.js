@@ -1,4 +1,6 @@
 import Search from './models/Search';
+import * as searchView from './views/SearchView';
+import { elements } from './views/base'
 /*
 Global state of the app
 -Search object
@@ -9,7 +11,7 @@ Global state of the app
 const state = {};
 const controlSearch = async () => {
     // 1) Get query from view
-    const query = 'pizza' //TODO
+    const query = SearchView.getInput();
 
     if (query) {
 
@@ -26,7 +28,7 @@ const controlSearch = async () => {
     }
 }
 //event listener so page doesn't reload when searching
-document.querySelector('.search').addEventListener('submit', e => {
+elements.searchForm.addEventListener('submit', e => {
     e.preventDefault();
     controlSearch();
 });

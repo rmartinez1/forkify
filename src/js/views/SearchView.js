@@ -1,1 +1,3 @@
-fetch('https://www.metaweather.com/api/location/2487965/');
+import { elements } from './views/base'
+
+export const getInput = () => elements.searchInput.value;
