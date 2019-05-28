@@ -1,6 +1,6 @@
 import Search from './models/Search';
 import * as searchView from './views/SearchView';
-import { elements } from './views/base'
+import { elements } from './views/base';
 /*
 Global state of the app
 -Search object
@@ -11,7 +11,7 @@ Global state of the app
 const state = {};
 const controlSearch = async () => {
     // 1) Get query from view
-    const query = SearchView.getInput();
+    const query = searchView.getInput();
 
     if (query) {
 
