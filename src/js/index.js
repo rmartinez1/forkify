@@ -35,6 +35,7 @@ const controlSearch = async () => {
             searchView.renderResults(state.search.result);
         } catch (err) {
             alert('Something went wrong with Search..');
+            console.log(err)
             clearLoader();
         }
     }
@@ -44,6 +45,8 @@ elements.searchForm.addEventListener('submit', e => {
     e.preventDefault();
     controlSearch();
 });
+
+
 
 elements.searchResPages.addEventListener('click', e => {
     const btn = e.target.closest('.btn-inline');
@@ -67,14 +70,16 @@ const controlRecipe = async () => {
         state.recipe = new Recipe(id);
 
         try {
-            // Get recipe data
+            // Get recipe data and parse ingredients
             await state.recipe.getRecipe();
+            state.recipe.parseIngredients();
             // Calculate servings and time
             state.recipe.calcTime();
             state.recipe.calcServings();
             // Render recipe
             console.log(state.recipe)
         } catch (err) {
+            console.log(err)
             alert('something went wrong processing the recipe D:');
         }
     }
